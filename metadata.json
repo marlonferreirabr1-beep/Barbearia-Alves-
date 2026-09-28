@@ -1,0 +1,6 @@
+{
+  "name": "Barbearia Alves • Bio Site Oficial",
+  "description": "Bio site oficial da Barbearia Alves em Maceió - AL. Unidades Santa Lúcia e Cambuci. Agendamento pelo WhatsApp, localizações e horários.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

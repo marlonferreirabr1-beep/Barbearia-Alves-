@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-luxury: #07070a;
+    --card-surface: #101015;
+    --card-surface-hover: #16161f;
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-highlight: rgba(255, 255, 255, 0.28);
+    --ice-white: #f5f7fa;
+    --graphite: #2a2a32;
+  }
+
+  body {
+    background-color: var(--bg-luxury);
+    color: var(--ice-white);
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    perspective: 1200px;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: 'Syne', 'Plus Jakarta Sans', system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* 3D Luxury Glass Card with Specular Lighting & Deep Perspective */
+.luxury-card {
+  background: linear-gradient(135deg, rgba(26, 26, 33, 0.88) 0%, rgba(13, 13, 18, 0.96) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.9), 
+              0 0 1px 1px rgba(255, 255, 255, 0.06),
+              inset 0 1px 0 0 rgba(255, 255, 255, 0.2),
+              inset 0 -1px 0 0 rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transform-style: preserve-3d;
+  will-change: transform, box-shadow;
+}
+
+/* 3D Holographic Chamfer Effect on Hover / Touch */
+.luxury-card-interactive {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.35s ease, 
+              box-shadow 0.4s ease;
+}
+
+.luxury-card-interactive:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-4px) scale(1.012) rotateX(1deg);
+  box-shadow: 0 28px 60px -15px rgba(0, 0, 0, 0.95), 
+              0 0 25px rgba(255, 255, 255, 0.08),
+              inset 0 1px 2px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* 3D Floating Shimmer on Elements */
+@keyframes specularPass {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+  }
+  50%, 100% {
+    transform: translateX(250%) skewX(-20deg);
+  }
+}
+
+.specular-glint {
+  position: relative;
+  overflow: hidden;
+}
+
+.specular-glint::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 100%
+  );
+  transform: translateX(-150%) skewX(-20deg);
+  animation: specularPass 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Intense 3D Glow for Logos */
+.glow-wa {
+  filter: drop-shadow(0 0 18px rgba(37, 211, 102, 0.55))
+          drop-shadow(0 8px 16px rgba(0, 0, 0, 0.85));
+}
+
+.glow-ig {
+  filter: drop-shadow(0 0 18px rgba(225, 48, 108, 0.55))
+          drop-shadow(0 8px 16px rgba(0, 0, 0, 0.85));
+}
+
+.glow-maps {
+  filter: drop-shadow(0 0 18px rgba(66, 133, 244, 0.5))
+          drop-shadow(0 8px 16px rgba(0, 0, 0, 0.85));
+}
+
+.glow-google {
+  filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.35))
+          drop-shadow(0 8px 16px rgba(0, 0, 0, 0.85));
+}
+
+/* Subtle White Aura for Logo */
+.logo-aura {
+  filter: drop-shadow(0 0 45px rgba(255, 255, 255, 0.22)) 
+          drop-shadow(0 0 90px rgba(255, 255, 255, 0.08))
+          drop-shadow(0 20px 40px rgba(0, 0, 0, 0.95));
+}
+
+/* Cinematic film grain feel */
+.cinematic-vignette {
+  background: radial-gradient(circle at 50% 30%, transparent 20%, rgba(7, 7, 10, 0.8) 75%, #07070a 100%);
+}
+
+/* Floating breathing animation */
+@keyframes float3D {
+  0%, 100% {
+    transform: translateY(0px) rotateX(0deg);
+  }
+  50% {
+    transform: translateY(-6px) rotateX(1.5deg);
+  }
+}
+
+.floating-3d {
+  animation: float3D 4s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #07070a;
+}
+::-webkit-scrollbar-thumb {
+  background: #282833;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #424254;
+}
